@@ -1,0 +1,36 @@
+    package dev.andregomes.mastersys.dto;
+
+    import dev.andregomes.mastersys.domain.Aluno;
+
+    import java.time.LocalDate;
+    import java.time.LocalDateTime;
+
+    public record AlunoResponse(
+
+            Long id,
+            String nome,
+            LocalDate dataNascimento,
+            String sexo,
+            String telefone,
+            String email,
+            String cidade,
+            String estado,
+            LocalDateTime criadoEm
+
+       ) {
+
+        public static AlunoResponse fromEntity(Aluno aluno){
+            return new AlunoResponse(
+                    aluno.getId(),
+                    aluno.getNome(),
+                    aluno.getDataNascimento(),
+                    aluno.getSexo(),
+                    aluno.getTelefone(),
+                    aluno.getEmail(),
+                    aluno.getCidade(),
+                    aluno.getEstado(),
+                    aluno.getCriadoEm()
+
+            );
+        }
+    }
