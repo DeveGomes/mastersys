@@ -3,9 +3,12 @@ package dev.andregomes.mastersys.domain;
 
 import dev.andregomes.mastersys.domain.enums.StatusMatricula;
 import jakarta.persistence.*;
-
+import lombok.Getter;
+import lombok.Setter;
 import java.time.LocalDate;
 
+@Getter
+@Setter
 @Entity
 @Table(name = "matriculas")
 public class Matricula {
@@ -37,51 +40,4 @@ public class Matricula {
         }
     }
 
-    public long getId() {
-        return id;
-    }
-
-    public void setId(long id) {
-        this.id = id;
-    }
-
-    public LocalDate getDataMatricula() {
-        return dataMatricula;
-    }
-
-    public void setDataMatricula(LocalDate dataMatricula) {
-        this.dataMatricula = dataMatricula;
-    }
-
-    public Integer getDiaVencimento() {
-        return diaVencimento;
-    }
-
-    public void setDiaVencimento(Integer diaVencimento) {
-        this.diaVencimento = diaVencimento;
-    }
-
-    public LocalDate getDataEncerramento() {
-        return dataEncerramento;
-    }
-
-    public void setDataEncerramento(LocalDate dataEncerramento) {
-        this.dataEncerramento = dataEncerramento;
-    }
-
-    public StatusMatricula getStatus() {
-        return status;
-    }
-
-    public void setStatus(StatusMatricula status) {
-        this.status = status;
-    }
-
-    public Aluno getAluno() {
-        return aluno;
-    }
-
-    public void setAluno(Aluno aluno) {
-        this.aluno = aluno;
-    }
 }

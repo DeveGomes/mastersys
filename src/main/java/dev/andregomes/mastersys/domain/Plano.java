@@ -1,9 +1,13 @@
 package dev.andregomes.mastersys.domain;
 
 import jakarta.persistence.*;
+import lombok.Getter;
+import lombok.Setter;
 
 import java.math.BigDecimal;
 
+@Getter
+@Setter
 @Entity
 @Table(name = "planos")
 public class Plano {
@@ -15,7 +19,7 @@ public class Plano {
 
     private Boolean ativo;
 
-    @Column(name="valorMensal")
+    @Column(name="valor_mensal")
     private BigDecimal valorMensal;
 
 
@@ -23,43 +27,4 @@ public class Plano {
     @JoinColumn(name = "modalidade_id")
     private Modalidade modalidade;
 
-    public long getId() {
-        return id;
-    }
-
-    public void setId(long id) {
-        this.id = id;
-    }
-
-    public String getNome() {
-        return nome;
-    }
-
-    public void setNome(String nome) {
-        this.nome = nome;
-    }
-
-    public Boolean getAtivo() {
-        return ativo;
-    }
-
-    public void setAtivo(Boolean ativo) {
-        this.ativo = ativo;
-    }
-
-    public BigDecimal getValorMensal() {
-        return valorMensal;
-    }
-
-    public void setValorMensal(BigDecimal valorMensal) {
-        this.valorMensal = valorMensal;
-    }
-
-    public Modalidade getModalidade() {
-        return modalidade;
-    }
-
-    public void setModalidade(Modalidade modalidade) {
-        this.modalidade = modalidade;
-    }
 }

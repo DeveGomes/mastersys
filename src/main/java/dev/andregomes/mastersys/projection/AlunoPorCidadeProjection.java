@@ -2,7 +2,7 @@ package dev.andregomes.mastersys.projection;
 
 public interface AlunoPorCidadeProjection {
 
-    String getCidada();
+    String getCidade();
     Long getQuantidade();
 
 }

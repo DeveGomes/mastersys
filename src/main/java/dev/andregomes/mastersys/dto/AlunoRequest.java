@@ -23,6 +23,9 @@ public record AlunoRequest(
         @Size(max = 30, message = "O telefone deve ter no máximo 30 caracteres.")
         String telefone,
 
+        @Size(max = 30, message = "O celular deve ter no máximo 30 caracteres.")
+        String celular,
+
         @NotBlank(message = "O E-mail é obrigatório")
         @Email(message = "E-mail inválido")
         @Size(max = 150, message = "O e-mail deve ter o máximo 150 caracteres.")
@@ -65,6 +68,7 @@ public record AlunoRequest(
         aluno.setDataNascimento(dataNascimento);
         aluno.setSexo(sexo);
         aluno.setTelefone(telefone);
+        aluno.setCelular(celular);
         aluno.setEmail(email);
         aluno.setObservacao(observacao);
         aluno.setEndereco(endereco);

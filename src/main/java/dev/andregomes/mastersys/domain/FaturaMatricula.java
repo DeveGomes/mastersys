@@ -2,11 +2,14 @@ package dev.andregomes.mastersys.domain;
 
 import dev.andregomes.mastersys.domain.enums.StatusFatura;
 import jakarta.persistence.*;
-
+import lombok.Getter;
+import lombok.Setter;
 import java.math.BigDecimal;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 
+@Getter
+@Setter
 @Entity
 @Table(name = "faturas_matriculas")
 public class FaturaMatricula {
@@ -34,59 +37,5 @@ public class FaturaMatricula {
     @JoinColumn(name = "matricula_id")
     private Matricula matricula;
 
-    public Matricula getMatricula() {
-        return matricula;
-    }
 
-    public void setMatricula(Matricula matricula) {
-        this.matricula = matricula;
-    }
-
-    public StatusFatura getStatus() {
-        return status;
-    }
-
-    public void setStatus(StatusFatura status) {
-        this.status = status;
-    }
-
-    public LocalDate getDataCancelamento() {
-        return dataCancelamento;
-    }
-
-    public void setDataCancelamento(LocalDate dataCancelamento) {
-        this.dataCancelamento = dataCancelamento;
-    }
-
-    public LocalDateTime getDataPagamento() {
-        return dataPagamento;
-    }
-
-    public void setDataPagamento(LocalDateTime dataPagamento) {
-        this.dataPagamento = dataPagamento;
-    }
-
-    public BigDecimal getValor() {
-        return valor;
-    }
-
-    public void setValor(BigDecimal valor) {
-        this.valor = valor;
-    }
-
-    public LocalDate getDataVencimento() {
-        return dataVencimento;
-    }
-
-    public void setDataVencimento(LocalDate dataVencimento) {
-        this.dataVencimento = dataVencimento;
-    }
-
-    public long getId() {
-        return id;
-    }
-
-    public void setId(long id) {
-        this.id = id;
-    }
 }

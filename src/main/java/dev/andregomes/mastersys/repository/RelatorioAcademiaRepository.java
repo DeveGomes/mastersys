@@ -33,7 +33,7 @@ public interface RelatorioAcademiaRepository extends Repository<FaturaMatricula,
             count (*) as quantidade
            FROM alunos
           
-           GROUP BY cidada
+           GROUP BY cidade
            ORDER BY quantidade desc
            """,
             nativeQuery = true

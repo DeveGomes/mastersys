@@ -1,0 +1,1 @@
+ALTER TABLE alunos RENAME COLUMN cidada TO cidade;
