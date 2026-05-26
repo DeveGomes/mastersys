@@ -7,10 +7,12 @@ import dev.andregomes.mastersys.dto.AlunoResponse;
 import dev.andregomes.mastersys.exception.RegraNegocioException;
 import dev.andregomes.mastersys.repository.AlunoRepository;
 import dev.andregomes.mastersys.specification.AlunoSpecification;
+import jakarta.transaction.Transactional;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
+@Transactional
 @Service
 public class AlunoService {
 

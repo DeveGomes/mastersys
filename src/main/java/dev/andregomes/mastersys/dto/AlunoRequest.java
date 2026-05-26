@@ -78,8 +78,6 @@ public record AlunoRequest(
         aluno.setBairro(bairro);
         aluno.setEstado(estado);
         aluno.setCep(cep);
-        aluno.setCriadoEm(criadoEm);
-        aluno.setAtualizadoEm(atualizadoEm);
     }
 
 

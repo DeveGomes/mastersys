@@ -29,7 +29,7 @@ public interface RelatorioAcademiaRepository extends Repository<FaturaMatricula,
     @Query(
             value = """
           SELECT
-            cidada,
+            cidade,
             count (*) as quantidade
            FROM alunos
           
