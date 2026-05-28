@@ -52,9 +52,7 @@ public record AlunoRequest(
         String estado,
 
         @Size(max = 20, message = "O cep deve ter o máximo 20 caracteres.")
-        String cep,
-        LocalDateTime criadoEm,
-        LocalDateTime atualizadoEm
+        String cep
 
 ) {
     public Aluno toEntity(){

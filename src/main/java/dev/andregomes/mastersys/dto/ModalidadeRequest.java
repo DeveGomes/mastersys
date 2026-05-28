@@ -7,7 +7,7 @@ import jakarta.validation.constraints.Size;
 
 public record ModalidadeRequest(
 
-        @NotBlank
+        @NotBlank(message = "O nome não pode ser vazio.")
         @Size(max=150)
         String nome,
 
