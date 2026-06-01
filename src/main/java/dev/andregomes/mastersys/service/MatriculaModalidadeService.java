@@ -75,7 +75,7 @@ public class MatriculaModalidadeService {
         MatriculaModalidade mm = matriculaModalidadeRepository.findById(id)
                 .orElseThrow(() -> new RegraNegocioException("Vínculo não encontrado"));
 
-        if (!mm.getMatricula().getId().equals(matriculaId)) {
+        if (!matriculaId.equals(mm.getMatricula().getId())) {
             throw new RegraNegocioException("Este vínculo não pertence à matrícula informada.");
         }
 
