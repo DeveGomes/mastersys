@@ -1,0 +1,9 @@
+CREATE INDEX idx_alunos_email               ON alunos(email);
+CREATE INDEX idx_alunos_cidade              ON alunos(cidade);
+CREATE INDEX idx_matriculas_aluno_id        ON matriculas(aluno_id);
+CREATE INDEX idx_matriculas_status          ON matriculas(status);
+CREATE INDEX idx_matriculas_mod_matricula   ON matriculas_modalidades(matricula_id);
+CREATE INDEX idx_faturas_matricula_id       ON faturas_matriculas(matricula_id);
+CREATE INDEX idx_faturas_status             ON faturas_matriculas(status);
+CREATE INDEX idx_faturas_data_vencimento    ON faturas_matriculas(data_vencimento);
+CREATE INDEX idx_assiduidade_matricula_id   ON assiduidade(matricula_id);

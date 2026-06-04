@@ -31,7 +31,7 @@ public class AlunoService {
 
         Aluno aluno = request.toEntity();
         Aluno alunoSalvo = alunoRepository.save(aluno);
-        return AlunoResponse.fromEntity(aluno);
+        return AlunoResponse.fromEntity(alunoSalvo);
     }
 
     public Page<AlunoResponse> listar (AlunoFiltroRequest filtro, Pageable pageable){

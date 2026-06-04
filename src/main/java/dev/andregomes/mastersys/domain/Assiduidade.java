@@ -27,7 +27,7 @@ public class Assiduidade {
     private Matricula matricula;
 
     @PrePersist
-    public void PrePersist(){
+    public void prePersist(){
         if(dataEntrada == null){
             dataEntrada = LocalDateTime.now();
         }

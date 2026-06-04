@@ -4,12 +4,13 @@ VALUES (2, CURRENT_DATE - INTERVAL '90 Days', 10, 'ATIVA');
 INSERT INTO matriculas (aluno_id, data_matricula, dia_vencimento, status)
 VALUES (4, CURRENT_DATE - INTERVAL '60 Days', 15, 'ATIVA');
 
-INSERT INTO matriculas_modalidades (matricula_id, modalidade_id, plano_id, data_inicio)
+INSERT INTO matriculas_modalidades (matricula_id, modalidade_id, graduacao_id, plano_id, data_inicio)
 SELECT
-  m.id, mo.id,p.id, CURRENT_DATE - INTERVAL '90 Days'
+  m.id, mo.id, g.id, p.id, CURRENT_DATE - INTERVAL '90 Days'
   FROM matriculas m
   JOIN modalidades mo ON mo.nome = 'Musculação'
-  JOIN planos p ON p.modalidade_id = mo.id AND p.nome = 'Mensal'
+  JOIN graduacoes g ON g.modalidade_id = mo.id AND g.nome = 'Nível Único'
+  JOIN planos p ON p.modalidade_id = mo.id AND p.nome = 'mensal'
   WHERE m.aluno_id = 2;
 
 

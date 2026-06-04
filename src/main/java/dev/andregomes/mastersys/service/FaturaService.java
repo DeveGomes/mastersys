@@ -8,9 +8,12 @@ import dev.andregomes.mastersys.dto.FaturaResponse;
 import dev.andregomes.mastersys.exception.RegraNegocioException;
 import dev.andregomes.mastersys.repository.FaturaMatriculaRepository;
 import dev.andregomes.mastersys.repository.MatriculaRepository;
-import jakarta.transaction.Transactional;
+import dev.andregomes.mastersys.repository.ProcedureRepository;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Propagation;
+import org.springframework.transaction.annotation.Transactional;
 
+import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.util.List;
 
@@ -20,10 +23,14 @@ public class FaturaService {
 
     private final FaturaMatriculaRepository faturaRepository;
     private final MatriculaRepository matriculaRepository;
+    private final ProcedureRepository procedureRepository;
 
-    public FaturaService(FaturaMatriculaRepository faturaRepository, MatriculaRepository matriculaRepository) {
+    public FaturaService(FaturaMatriculaRepository faturaRepository,
+                         MatriculaRepository matriculaRepository,
+                         ProcedureRepository procedureRepository) {
         this.faturaRepository = faturaRepository;
         this.matriculaRepository = matriculaRepository;
+        this.procedureRepository = procedureRepository;
     }
 
     public FaturaResponse gerar(Long matriculaId, FaturaRequest request) {
@@ -78,6 +85,16 @@ public class FaturaService {
         fatura.setStatus(StatusFatura.CANCELADA);
         fatura.setDataCancelamento(java.time.LocalDate.now());
         return FaturaResponse.fromEntity(faturaRepository.save(fatura));
+    }
+
+    @Transactional(propagation = Propagation.NOT_SUPPORTED)
+    public void gerarFaturasMensais(LocalDate mes) {
+        procedureRepository.gerarFaturasMensais(mes);
+    }
+
+    @Transactional(propagation = Propagation.NOT_SUPPORTED)
+    public void marcarFaturasVencidas() {
+        procedureRepository.marcarFaturasVencidas();
     }
 
     private FaturaMatricula buscarFaturaVinculada(Long matriculaId, Long id) {

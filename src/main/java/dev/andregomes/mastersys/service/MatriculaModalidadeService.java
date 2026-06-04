@@ -84,6 +84,7 @@ public class MatriculaModalidadeService {
         }
 
         mm.setDataFim(LocalDate.now());
+        matriculaModalidadeRepository.save(mm);
     }
 
     private Matricula buscarMatriculaPorId(Long id) {

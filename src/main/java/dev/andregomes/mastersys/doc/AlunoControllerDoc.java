@@ -103,4 +103,39 @@ public interface AlunoControllerDoc {
             @Parameter(description = "ID do aluno", example = "2", required = true)
             Long id);
 
+    @Operation(
+            summary = "Atualizar aluno",
+            description = "Atualiza os dados de um aluno existente",
+            responses = {
+                    @ApiResponse(responseCode = "200", description = "Aluno atualizado com sucesso"),
+                    @ApiResponse(
+                            responseCode = "400",
+                            description = "Erro de validação ou regra de negócio",
+                            content = @Content(schema = @Schema(implementation = ErrorResponse.class))
+                    )
+            }
+    )
+    AlunoResponse atualizar(
+            @Parameter(description = "ID do aluno", example = "2", required = true)
+            Long id,
+            @RequestBody @Valid AlunoRequest request
+    );
+
+    @Operation(
+            summary = "Excluir aluno",
+            description = "Remove um aluno do sistema",
+            responses = {
+                    @ApiResponse(responseCode = "204", description = "Aluno excluído com sucesso"),
+                    @ApiResponse(
+                            responseCode = "400",
+                            description = "Aluno não encontrado",
+                            content = @Content(schema = @Schema(implementation = ErrorResponse.class))
+                    )
+            }
+    )
+    void excluir(
+            @Parameter(description = "ID do aluno", example = "2", required = true)
+            Long id
+    );
+
 }
